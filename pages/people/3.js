@@ -2,18 +2,16 @@ import React, { useState } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { AlertCircle, Clock } from 'lucide-react';
 
-// Employee configuration remains the same
 const employeeConfig = {
-  name: "CARLOS UMBERTO CRUZ",
-  id: "128",
-  address: "3336 MT. PLEASANT STREET, APT.4",
-  city: "WASHINGTON",
+  name: "JENNIFER RALDA ROMERO",
+  id: "201",
+  address: "1222 Missouri Avenue Apt 3",
+  city: "Washington",
   state: "DC",
-  zip: "20010"
+  zip: "20011"
 };
 
 const WageAnalysisDashboard = () => {
-  // Helper functions remain the same
   const timeToMinutes = (timeStr) => {
     const [time, period] = timeStr.split(' ');
     let [hours, minutes] = time.split(':').map(Number);
@@ -29,248 +27,130 @@ const WageAnalysisDashboard = () => {
   };
 
   const payPeriods = {
-    "04/01/2019 - 04/14/2019": {
+    "05/22/2023 - 06/04/2023": {
       payStub: {
-        checkNumber: "6313",
-        regularHours: 52.00,
+        checkNumber: "7587",
+        regularHours: 38.00,
         overtimeHours: 0,
-        rate: 13.50
+        rate: 16.50
       },
       wageDetails: [
         {
-          date: "04/23/19",
-          login: "10:26 AM",
-          logout: "9:56 PM",
-          hours: 11.51,
+          date: "06/18/23",
+          shifts: [
+            { login: "11:24 AM", logout: "2:52 PM", hours: 3.48 },
+            { login: "4:18 PM", logout: "10:36 PM", hours: 6.29 }
+          ],
+          totalHours: 9.77,
+          splitShift: true,
           overtime: true
         },
         {
-          date: "04/30/19",
-          shifts: [
-            { login: "10:21 AM", logout: "11:47 AM", hours: 1.44 },
-            { login: "11:50 AM", logout: "9:55 PM", hours: 10.07 }
-          ],
-          totalHours: 11.51,
-          splitShift: false,
-          overtime: true
+          date: "06/15/23",
+          login: "4:28 PM",
+          logout: "9:59 PM",
+          hours: 5.52
+        },
+        {
+          date: "06/16/23",
+          login: "3:58 PM",
+          logout: "10:07 PM",
+          hours: 6.15
+        },
+        {
+          date: "06/17/23",
+          login: "3:58 PM",
+          logout: "10:11 PM",
+          hours: 6.23
         }
       ]
     },
-    "05/13/2019 - 05/26/2019": {
+    "06/05/2023 - 06/18/2023": {
       payStub: {
-        checkNumber: "6359",
-        regularHours: 70.00,
+        checkNumber: "7596",
+        regularHours: 39.00,
         overtimeHours: 0,
-        rate: 14.00
+        rate: 16.50
       },
       wageDetails: [
         {
-          date: "05/14/19",
-          login: "10:50 AM",
-          logout: "9:51 PM",
-          hours: 11.02,
-          overtime: true
+          date: "06/20/23",
+          login: "4:06 PM",
+          logout: "9:59 PM",
+          hours: 5.87
         },
         {
-          date: "05/21/19",
-          login: "10:35 AM",
-          logout: "9:53 PM",
-          hours: 11.31,
-          overtime: true
+          date: "06/21/23",
+          login: "4:01 PM",
+          logout: "10:00 PM",
+          hours: 5.98
         },
         {
-          date: "05/28/19",
-          login: "10:36 AM",
-          logout: "10:02 PM",
-          hours: 11.44,
-          overtime: true
-        }
-      ]
-    },
-    "05/27/2019 - 06/09/2019": {
-      payStub: {
-        checkNumber: "6371",
-        regularHours: 70.00,
-        overtimeHours: 0,
-        rate: 14.00
-      },
-      wageDetails: [
-        {
-          date: "06/04/19",
-          login: "10:42 AM",
-          logout: "9:54 PM",
-          hours: 11.21,
-          overtime: true
+          date: "06/22/23",
+          login: "4:01 PM",
+          logout: "9:47 PM",
+          hours: 5.78
         },
         {
-          date: "06/06/19",
+          date: "06/23/23",
+          login: "4:41 PM",
+          logout: "10:14 PM",
+          hours: 5.55
+        },
+        {
+          date: "06/24/23",
+          login: "4:14 PM",
+          logout: "9:17 PM",
+          hours: 5.07
+        },
+        {
+          date: "06/25/23",
           shifts: [
-            { login: "10:34 AM", logout: "10:35 AM", hours: 0.02 },
-            { login: "3:27 PM", logout: "10:31 PM", hours: 7.07 }
+            { login: "1:24 PM", logout: "3:15 PM", hours: 1.85 },
+            { login: "4:01 PM", logout: "9:52 PM", hours: 5.86 }
           ],
-          totalHours: 7.09,
+          totalHours: 7.71,
           splitShift: true
         }
       ]
     },
-    "06/10/2019 - 06/23/2019": {
+    "06/19/2023 - 07/02/2023": {
       payStub: {
-        checkNumber: "6392",
-        regularHours: 69.00,
+        checkNumber: "7610",
+        regularHours: 65.00,
         overtimeHours: 0,
-        rate: 14.00
+        rate: 16.50
       },
       wageDetails: [
         {
-          date: "06/11/19",
-          login: "10:45 AM",
-          logout: "9:59 PM",
-          hours: 11.23,
-          overtime: true
-        },
-        {
-          date: "06/18/19",
-          login: "10:31 AM",
-          logout: "9:36 PM",
-          hours: 11.09,
-          overtime: true
-        }
-      ]
-    },
-    "06/24/2019 - 07/07/2019": {
-      payStub: {
-        checkNumber: "6405",
-        regularHours: 69.00,
-        overtimeHours: 0,
-        rate: 14.00
-      },
-      wageDetails: [
-        {
-          date: "06/25/19",
-          login: "10:34 AM",
-          logout: "10:02 PM",
-          hours: 11.47,
-          overtime: true
-        }
-      ]
-    },
-    "07/08/2019 - 07/21/2019": {
-      payStub: {
-        checkNumber: "6424",
-        regularHours: 79.00,
-        overtimeHours: 0,
-        rate: 14.00
-      },
-      wageDetails: [
-        {
-          date: "07/09/19",
-          login: "10:29 AM",
-          logout: "9:53 PM",
-          hours: 11.39,
-          overtime: true
-        },
-        {
-          date: "07/16/19",
-          login: "10:26 AM",
-          logout: "10:04 PM",
-          hours: 11.64,
-          overtime: true
-        }
-      ]
-    },
-    "07/22/2019 - 08/04/2019": {
-      payStub: {
-        checkNumber: "6437",
-        regularHours: 79.00,
-        overtimeHours: 0,
-        rate: 14.00
-      },
-      wageDetails: [
-        {
-          date: "07/23/19",
-          login: "10:44 AM",
-          logout: "9:52 PM",
-          hours: 11.13,
-          overtime: true
-        },
-        {
-          date: "07/30/19",
-          login: "10:42 AM",
-          logout: "9:53 PM",
-          hours: 11.18,
-          overtime: true
-        }
-      ]
-    },
-    "08/05/2019 - 08/18/2019": {
-      payStub: {
-        checkNumber: "6456",
-        regularHours: 76.00,
-        overtimeHours: 0,
-        rate: 14.00
-      },
-      wageDetails: [
-        {
-          date: "08/06/19",
-          login: "10:27 AM",
-          logout: "9:47 PM",
-          hours: 11.33,
-          overtime: true
-        },
-        {
-          date: "08/13/19",
-          login: "10:37 AM",
-          logout: "9:43 PM",
-          hours: 11.10,
-          overtime: true
-        }
-      ]
-    },
-    "08/19/2019 - 09/01/2019": {
-      payStub: {
-        checkNumber: "6469",
-        regularHours: 70.00,
-        overtimeHours: 0,
-        rate: 14.00
-      },
-      wageDetails: [
-        {
-          date: "08/20/19",
-          login: "10:25 AM",
+          date: "06/27/23",
+          login: "4:18 PM",
           logout: "10:01 PM",
-          hours: 11.59,
-          overtime: true
+          hours: 5.71
         },
         {
-          date: "08/27/19",
-          login: "10:25 AM",
-          logout: "9:53 PM",
-          hours: 11.48,
-          overtime: true
-        }
-      ]
-    },
-    "09/16/2019 - 09/29/2019": {
-      payStub: {
-        checkNumber: "6499",
-        regularHours: 70.00,
-        overtimeHours: 0,
-        rate: 14.00
-      },
-      wageDetails: [
-        {
-          date: "09/17/19",
-          login: "10:28 AM",
-          logout: "10:08 PM",
-          hours: 11.66,
-          overtime: true
+          date: "06/28/23",
+          login: "4:04 PM",
+          logout: "10:06 PM",
+          hours: 6.02
         },
         {
-          date: "09/24/19",
-          login: "10:31 AM",
-          logout: "9:48 PM",
-          hours: 11.29,
-          overtime: true
+          date: "06/29/23",
+          login: "4:11 PM",
+          logout: "10:02 PM",
+          hours: 5.86
+        },
+        {
+          date: "06/30/23",
+          login: "4:24 PM",
+          logout: "10:13 PM",
+          hours: 5.82
+        },
+        {
+          date: "07/01/23",
+          login: "4:38 PM",
+          logout: "10:29 PM",
+          hours: 5.85
         }
       ]
     }
@@ -285,7 +165,7 @@ const WageAnalysisDashboard = () => {
     let totalOvertimeHours = 0;
     
     data.wageDetails.forEach(day => {
-      if (day.overtime) {
+      if (day.overtime || (day.totalHours && day.totalHours > 8)) {
         overtimeCount++;
         const regularHours = 8;
         const totalHours = day.hours || day.totalHours;
@@ -377,8 +257,11 @@ const WageAnalysisDashboard = () => {
                     isSplitShift = gap > 1;
                   }
 
+                  const totalHours = day.hours || day.totalHours;
+                  const hasOvertime = totalHours > 8;
+
                   return (
-                    <tr key={index} className={`border-b ${(day.overtime || isSplitShift) ? 'bg-red-50' : ''}`}>
+                    <tr key={index} className={`border-b ${(hasOvertime || isSplitShift) ? 'bg-red-50' : ''}`}>
                       <td className="p-2">{day.date}</td>
                       <td className="p-2">
                         {day.shifts ? (
@@ -392,12 +275,12 @@ const WageAnalysisDashboard = () => {
                         )}
                       </td>
                       <td className="p-2">
-                        {day.hours || day.totalHours}
+                        {totalHours}
                       </td>
                       <td className="p-2">
-                        {day.overtime && (
+                        {hasOvertime && (
                           <div className="text-red-600">
-                            {((day.hours || day.totalHours) - 8).toFixed(2)} hours overtime not paid
+                            {(totalHours - 8).toFixed(2)} hours overtime not paid
                           </div>
                         )}
                         {isSplitShift && (

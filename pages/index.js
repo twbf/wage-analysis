@@ -11,7 +11,20 @@ const CardContent = dynamic(() => import('../components/ui/card').then(mod => ({
 // Import all employee configs
 const employeeFiles = {
   1: { name: "MELADY M MONICO" },
-  2: { name: "CARLOS UMBERTO CRUZ" }
+  2: { name: "CARLOS UMBERTO CRUZ" },
+  3: { name: "JENNIFER RALDA ROMERO" },
+  4: { name: "DANIEL ALFREDO CASTILLO" },
+  5: { name: "MARITZA ROXANA GARCIA SUNUN" },
+  6: { name: "AREVALO ANDERSON" },
+  7: { name: "MELKI FUENTES SEVEK" },
+  8: { name: "PEDRO SALGADO" },
+  9: { name: "ESTIVER ANALIS AGUILAR" },
+  10: { name: "JAIRA MELISSA DELCID" },
+  11: { name: "MARIA MIRANDA" },
+  12: { name: "MAURICIO RUBIO" },
+  13: { name: "ANA M ZUNIGA" },
+  14: { name: "KAREN VANESA LAZO" },
+  15: { name: "MARIA FLOR ARGUETA VASQUEZ" }
 };
 
 const IndexPage = () => {
